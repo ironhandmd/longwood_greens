@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class acid_pool : MonoBehaviour
+{
+    public Collider2D col;
+    health Health;
+
+
+    void Start() 
+    {
+        col = GetComponent<Collider2D>();
+        col.enabled = true;
+    
+    
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+
+        drainlife();
+    
+    
+    }
+
+    private void drainlife() 
+    {
+        Health = FindObjectOfType<health>();
+        Health.loseManyHearts();
+    
+    
+    }
+
+    public void nullifyAcid() 
+  {
+
+      col.enabled = false;
+    
+    }
+
+}
